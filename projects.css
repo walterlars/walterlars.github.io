@@ -360,14 +360,14 @@ header {
     color: var(--text-color-navbar);
 }
 
-section {
+/* section {
     min-height: 60vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-flow: wrap;
     border-bottom: 2px dashed var(--accent-1);
-}
+} */
 .ul-progress {
     position: fixed;
     bottom: 0;
