@@ -549,6 +549,14 @@ header {
     .container-projects-2{
         width: 100%;
     }
+
+    .container-projects-2 h1{
+        font-size: 20px;
+    }
+
+    .container-projects-2 h3{
+        font-size: 14px;
+    }
 }
 
 #anchor1,
