@@ -754,16 +754,16 @@ p {
 
     .row {
         flex-direction: column;
-        align-items: center;
+        /* align-items: center; */
     }
 
     .work-button {
         align-self: center;
     }
 
-    .tag-orange, .tag-blue, .tag-green, .tag-purple, .tag-lightblue {
+    /* .tag-orange, .tag-blue, .tag-green, .tag-purple, .tag-lightblue {
         margin: 15px 5px 10px 5px;
-    }
+    } */
 
     .right-column-start img {
         max-width: 100%;
@@ -781,15 +781,17 @@ p {
         font-size: 50px;
     }
 
-    .container-projects-2{
-        width: 100% !important;
+    .container-projects-2 {
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
     }
 
-    .container-projects-2 h1{
-        font-size: 10px !important;
+    .container-projects-2 h1 {
+        font-size: 20px;
     }
 
-    .container-projects-2 h3{
-        font-size: 4px !important;
+    .container-projects-2 h3 {
+        font-size: 14px;
     }
 }
