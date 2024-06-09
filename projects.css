@@ -116,7 +116,7 @@ header {
         position: absolute;
         width: 100%;
         height: 100%;
-        background-image: url(img/bg-start.png);
+        background-color: var(--background-color);
         backdrop-filter: blur(50px);
         z-index: -1;
     }
@@ -128,7 +128,7 @@ header {
         position: absolute;
         width: 100%;
         height: 100%;
-        background-image: url(img/bg-start.png);
+        background-color: var(--background-color);
         transition: 0.8s;
     }
 
@@ -656,6 +656,10 @@ p {
 
     .right-column-start img {
         max-width: 100%;
+    }
+
+    .container-start{
+        padding: 10px;
     }
 
     .left-column-start {
