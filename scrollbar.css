@@ -133,3 +133,12 @@ ul li a.active {
   margin: 20px;
   display: flex;
 }/*# sourceMappingURL=scrollbar.css.map */
+
+@media (max-width: 768px) {
+
+  .ul-progress > li a {
+    font-size:10px;
+  }
+
+}
+
