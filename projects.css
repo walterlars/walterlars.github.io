@@ -530,6 +530,10 @@ header {
         margin: 15px 5px 10px 5px;
     }
 
+    .right-column-start img {
+        max-width: 100%;
+    }
+
     .left-column-start {
         width: 100%;
     }
@@ -540,6 +544,10 @@ header {
 
     .left-column-start h2 {
         font-size: 50px;
+    }
+
+    .container-projects-2{
+        width: 100%;
     }
 }
 
