@@ -1,369 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <title>lars walter - Portfolio </title>
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <title>Lars Walter - Portfolio</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
-
-
 </head>
-<style>
-    /* Define initial background color */
-    body {
-        /* Light gray */
-        background-color: #fff;
-        transition: background-color 0.3s ease;
-        /* Smooth transition */
-    }
-
-    .container-wrapper {
-        color: var(--accent-1);
-        max-width: 100%;
-        overflow: hidden;
-        /* Added overflow to prevent horizontal scrolling */
-    }
-
-    /* Define styles for the image */
-    .image-container-proj {
-        max-width: 60%;
-        cursor: pointer;
-        margin-left: auto;
-    }
-
-    .image-container-proj2 {
-        cursor: pointer;
-        max-width: 60%;
-        margin-right: auto;
-    }
-
-    /* Define styles for the container */
-
-    .container-project {
-        display: flex;
-        margin-bottom: 20px;
-        margin-top: 20px;
-    }
-
-
-    /* Define styles for the text container */
-    .text-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        width: 40%;
-        margin-right: 20px;
-        margin-left: 40px;
-        margin-bottom: 75px;
-    }
-
-    .text-container .tag-orange p,
-    .text-container .tag-lightblue p {
-        font-size: 16px;
-    }
-
-    .text-container .tag-blue p,
-    .text-container .tag-purple p,
-    .text-container .tag-green p {
-        font-size: 14px;
-    }
-
-    .text-container p {
-        font-size: 24px;
-    }
-
-    .text-container h1 {
-        font-size: 26px;
-    }
-
-
-    /* Define styles for the image */
-    .image-container-proj img,
-    .image-container-proj2 img {
-        height: calc(80vh - 60px);
-    }
-
-
-    .divider {
-        height: 20vh;
-    }
-
-    .work-button {
-        display: inline-block;
-        border-radius: 20px;
-        border: 2px solid var(--accent-1);
-        color: var(--accent-1);
-        font-family: 'Space Grotesk', sans-serif;
-        font-weight: 700;
-        font-size: 16px;
-        text-align: center;
-        justify-content: center;
-        margin-top: 35px;
-        padding: 8px;
-        min-width: 150px;
-        max-width: 150px;
-        transition: background-color 0.3s, color 0.3s;
-    }
-
-    .work-button:hover {
-        cursor: pointer;
-        color: #fff;
-        background-color: var(--accent-1);
-    }
-</style>
-
 <body>
-    <!-- partial:index.partial.html -->
+    <header>
+        <a href="index.html" class="textlogo">lars walter.</a>
+        <input type="checkbox" id="check">
+        <label for="check" class="icons">
+            <i class="bx bx-menu" id="menu-icon"></i>
+            <i class="bx bx-x" id="close-icon"></i>
+        </label>
+        <nav class="navbar">
+            <a href="index.html" class="nav-item" style="--i: 0">home</a>
+            <a href="#" class="nav-item" style="--i: 3">resume</a>
+        </nav>
+    </header>
 
-    <body>
-        <!-- Nav Bar Beginning-->
-        <header>
-            <a href="index.html" class="textlogo">lars walter.</a>
-
-            <input type="checkbox" id="check" />
-            <label for="check" class="icons">
-                <i class="bx bx-menu" id="menu-icon"></i>
-                <i class="bx bx-x" id="close-icon"></i>
-            </label>
-
-            <nav class="navbar">
-                <a href="index.html" class="nav-item" style="--i: 0">home</a>
-                <!-- <a href="projects.html" class="nav-item" style="--i: 1">about me</a>
-                <a href="#" class="nav-item" style="--i: 2">work</a> -->
-                <a href="#" class="nav-item" style="--i: 3">resume</a>
-            </nav>
-        </header>
-        <!-- Nav Bar Ending -->
-
-        <div class="container-start">
-            <div class="row-start1">
-                <div class="left-column-start">
-                    <div class="column-content-start">
-                        <!-- Inhalt der linken Spalte hier einfügen -->
-                        <h1>
-                            port
-                        </h1>
-                        <h1>
-                            folio.
-                        </h1>
-                        <div class="divider"></div>
-                        <h2>
-                            lars walter.
-                        </h2>
-                        <h2>
-                            ux-designer
-                        </h2>
-                        <h3>(munich, germany)</h3>
-                    </div>
-                </div>
-                <div class="right-column-start">
-                    <img src="img/start-4.gif" alt="Your Image">
+    <div class="container-start">
+        <div class="row-start1">
+            <div class="left-column-start">
+                <div class="column-content-start">
+                    <h1>port</h1>
+                    <h1>folio.</h1>
+                    <div class="divider"></div>
+                    <h2>lars walter.</h2>
+                    <h2>ux-designer</h2>
+                    <h3>(munich, germany)</h3>
                 </div>
             </div>
-            <div class="row-start2">
-                <div class="additional-content">
-                    <div class="field">
-                        <div class="mouse"></div>
-                    </div>
+            <div class="right-column-start">
+                <img src="img/start-4.gif" alt="Your Image">
+            </div>
+        </div>
+        <div class="row-start2">
+            <div class="additional-content">
+                <div class="field">
+                    <div class="mouse"></div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="container-wrapper">
-            <div class="container-project">
-                <div class="text-container">
-                    <div class="row">
-                        <div class="tag-orange">
-                            <div class="circle-orange"></div>
-                            <p> Personal Project </p>
-                        </div>
-                    </div>
-                    <h1>OrganizeME</h1>
-                    <p>An App Prototype to Organize your Life.
-                    </p>
-
-                    <div class="row">
-                        <div class="tag-blue">
-                            <div class="circle-blue"></div>
-                            <p> UI-Design </p>
-                        </div>
-                        <div class="tag-purple">
-                            <div class="circle-purple"></div>
-                            <p> Figma </p>
-                        </div>
-                        <div class="tag-green">
-                            <div class="circle-green"></div>
-                            <p> User-Research </p>
-                        </div>
-                    </div>
-                    <div class="work-button" onclick="navigateToOrganizeMe()">
-                        Learn more
+    <div class="container-wrapper">
+        <div class="container-project">
+            <div class="text-container">
+                <div class="row">
+                    <div class="tag-orange">
+                        <div class="circle-orange"></div>
+                        <p>Personal Project</p>
                     </div>
                 </div>
-
-                <div class="image-container-proj" onmouseover="changeBackgroundColor()"
-                    onmouseout="restoreBackgroundColor()" onclick="navigateToOrganizeMe()">
-                    <img src="img/organizeme_title.png" alt="Your Image">
+                <h1>OrganizeME</h1>
+                <p>An App Prototype to Organize your Life.</p>
+                <div class="row">
+                    <div class="tag-blue">
+                        <div class="circle-blue"></div>
+                        <p>UI-Design</p>
+                    </div>
+                    <div class="tag-purple">
+                        <div class="circle-purple"></div>
+                        <p>Figma</p>
+                    </div>
+                    <div class="tag-green">
+                        <div class="circle-green"></div>
+                        <p>User-Research</p>
+                    </div>
                 </div>
+                <div class="work-button" onclick="navigateToOrganizeMe()">Learn more</div>
+            </div>
+            <div class="image-container-proj" onmouseover="changeBackgroundColor()" onmouseout="restoreBackgroundColor()" onclick="navigateToOrganizeMe()">
+                <img src="img/organizeme_title.png" alt="Your Image">
             </div>
         </div>
+    </div>
 
-        <div class="divider"></div>
+    <div class="divider"></div>
 
-        <div class="container-wrapper">
-            <div class="container-project">
-                <div class="image-container-proj2" onmouseover="changeBackgroundColor2()"
-                    onmouseout="restoreBackgroundColor()" onclick="navigateToHera()">
-                    <img src="img/hera_title.png" alt="Your Image">
-                </div>
-                <div class="text-container">
-                    <div class="row">
-                        <div class="tag-lightblue">
-                            <div class="circle-lightblue"></div>
-                            <p> Company Project </p>
-                        </div>
-                    </div>
-                    <h1>Hera IMOD UI</h1>
-                    <p>A New UI for an electronic unit.
-                    </p>
-                    <div class="row">
-                        <div class="tag-blue">
-                            <div class="circle-blue"></div>
-                            <p> UI-Design </p>
-                        </div>
-                        <div class="tag-purple">
-                            <div class="circle-purple"></div>
-                            <p> Figma </p>
-                        </div>
-                        <div class="tag-green">
-                            <div class="circle-green"></div>
-                            <p> Prototype </p>
-                        </div>
-                    </div>
-                    <div class="work-button" onclick="navigateToHera()">
-                        Learn more
+    <div class="container-wrapper">
+        <div class="container-project">
+            <div class="image-container-proj2" onmouseover="changeBackgroundColor2()" onmouseout="restoreBackgroundColor()" onclick="navigateToHera()">
+                <img src="img/hera_title.png" alt="Your Image">
+            </div>
+            <div class="text-container">
+                <div class="row">
+                    <div class="tag-lightblue">
+                        <div class="circle-lightblue"></div>
+                        <p>Company Project</p>
                     </div>
                 </div>
+                <h1>Hera IMOD UI</h1>
+                <p>A New UI for an electronic unit.</p>
+                <div class="row">
+                    <div class="tag-blue">
+                        <div class="circle-blue"></div>
+                        <p>UI-Design</p>
+                    </div>
+                    <div class="tag-purple">
+                        <div class="circle-purple"></div>
+                        <p>Figma</p>
+                    </div>
+                    <div class="tag-green">
+                        <div class="circle-green"></div>
+                        <p>Prototype</p>
+                    </div>
+                </div>
+                <div class="work-button" onclick="navigateToHera()">Learn more</div>
             </div>
         </div>
+    </div>
 
-        <div class="divider"></div>
+    <div class="divider"></div>
 
-        <div class="container-wrapper">
-            <div class="container-project">
-                <div class="text-container">
-                    <div class="row">
-                        <div class="tag-orange">
-                            <div class="circle-orange"></div>
-                            <p> Personal Project </p>
-                        </div>
-                    </div>
-                    <h1>Packaging Design</h1>
-                    <p>Design of different packagings.
-                    </p>
-
-                    <div class="row">
-                        <div class="tag-blue">
-                            <div class="circle-blue"></div>
-                            <p> Chocolate </p>
-                        </div>
-                        <div class="tag-purple">
-                            <div class="circle-purple"></div>
-                            <p> Candle </p>
-                        </div>
-                        <div class="tag-green">
-                            <div class="circle-green"></div>
-                            <p> Can </p>
-                        </div>
-                    </div>
-                    <div class="work-button" onclick="navigateToProductDesign()">
-                        Learn more
+    <div class="container-wrapper">
+        <div class="container-project">
+            <div class="text-container">
+                <div class="row">
+                    <div class="tag-orange">
+                        <div class="circle-orange"></div>
+                        <p>Personal Project</p>
                     </div>
                 </div>
-
-                <div class="image-container-proj" onmouseover="changeBackgroundColor3()"
-                    onmouseout="restoreBackgroundColor()" onclick="navigateToProductDesign()">
-                    <img src="img/choc_title.png" alt="Your Image">
+                <h1>Packaging Design</h1>
+                <p>Design of different packagings.</p>
+                <div class="row">
+                    <div class="tag-blue">
+                        <div class="circle-blue"></div>
+                        <p>Chocolate</p>
+                    </div>
+                    <div class="tag-purple">
+                        <div class="circle-purple"></div>
+                        <p>Candle</p>
+                    </div>
+                    <div class="tag-green">
+                        <div class="circle-green"></div>
+                        <p>Can</p>
+                    </div>
                 </div>
+                <div class="work-button" onclick="navigateToProductDesign()">Learn more</div>
+            </div>
+            <div class="image-container-proj" onmouseover="changeBackgroundColor3()" onmouseout="restoreBackgroundColor()" onclick="navigateToProductDesign()">
+                <img src="img/choc_title.png" alt="Your Image">
             </div>
         </div>
+    </div>
 
-        <div class="divider"></div>
+    <div class="divider"></div>
 
-        <div class="container-wrapper">
-            <div class="container-project">
-                <div class="image-container-proj2" onmouseover="changeBackgroundColor4()"
-                    onmouseout="restoreBackgroundColor()" onclick="navigateToWeather()">
-                    <img src="img/weather_title.png" alt="Your Image">
-                </div>
-                <div class="text-container">
-                    <div class="row">
-                        <div class="tag-orange">
-                            <div class="circle-orange"></div>
-                            <p> Personal Project </p>
-                        </div>
-                    </div>
-                    <h1>Weather App </h1>
-                    <p>A Prototype for a potential Weather App.
-                    </p>
-                    <div class="row">
-                        <div class="tag-blue">
-                            <div class="circle-blue"></div>
-                            <p> UI-Design </p>
-                        </div>
-                        <div class="tag-purple">
-                            <div class="circle-purple"></div>
-                            <p> Figma </p>
-                        </div>
-                        <div class="tag-green">
-                            <div class="circle-green"></div>
-                            <p> Prototype </p>
-                        </div>
-                    </div>
-                    <div class="work-button" onclick="navigateToWeather()">
-                        Learn more
+    <div class="container-wrapper">
+        <div class="container-project">
+            <div class="image-container-proj2" onmouseover="changeBackgroundColor4()" onmouseout="restoreBackgroundColor()" onclick="navigateToWeather()">
+                <img src="img/weather_title.png" alt="Your Image">
+            </div>
+            <div class="text-container">
+                <div class="row">
+                    <div class="tag-orange">
+                        <div class="circle-orange"></div>
+                        <p>Personal Project</p>
                     </div>
                 </div>
+                <h1>Weather App</h1>
+                <p>A Prototype for a potential Weather App.</p>
+                <div class="row">
+                    <div class="tag-blue">
+                        <div class="circle-blue"></div>
+                        <p>UI-Design</p>
+                    </div>
+                    <div class="tag-purple">
+                        <div class="circle-purple"></div>
+                        <p>Figma</p>
+                    </div>
+                    <div class="tag-green">
+                        <div class="circle-green"></div>
+                        <p>Prototype</p>
+                    </div>
+                </div>
+                <div class="work-button" onclick="navigateToWeather()">Learn more</div>
             </div>
         </div>
+    </div>
 
-
-
-        <script src="functions.js"></script>
-        <script>
-
-            function navigateToOrganizeMe() {
-                window.location.href = 'organizeme.html';
-            }
-
-            // JavaScript function to change background color
-            function changeBackgroundColor() {
-                document.body.style.backgroundImage = "none";
-                document.body.style.backgroundColor = "#DA63DC";
-            }
-
-            function changeBackgroundColor2() {
-                document.body.style.backgroundImage = "none";
-                document.body.style.backgroundColor = "#03CB5F";
-            }
-
-            function changeBackgroundColor3() {
-                document.body.style.backgroundImage = "none";
-                document.body.style.backgroundColor = "#DB5144";
-            }
-
-            function changeBackgroundColor4() {
-                document.body.style.backgroundImage = "none";
-                document.body.style.backgroundColor = "#FDFFAB";
-            }
-
-            // JavaScript function to restore background color
-            function restoreBackgroundColor() {
-                //document.body.style.backgroundImage = "url(img/bg-start.png)";
-                document.body.style.backgroundColor = "#fff";
-            }
-        </script>
-    </body>
-
+    <script src="functions.js"></script>
+    <script>
+        function navigateToOrganizeMe() {
+            window.location.href = 'organizeme.html';
+        }
+        function changeBackgroundColor() {
+            document.body.style.backgroundColor = "#DA63DC";
+        }
+        function changeBackgroundColor2() {
+            document.body.style.backgroundColor = "#03CB5F";
+        }
+        function changeBackgroundColor3() {
+            document.body.style.backgroundColor = "#DB5144";
+        }
+        function changeBackgroundColor4() {
+            document.body.style.backgroundColor = "#FDFFAB";
+        }
+        function restoreBackgroundColor() {
+            document.body.style.backgroundColor = "#fff";
+        }
+    </script>
+</body>
 </html>
