@@ -500,6 +500,10 @@ header {
         align-items: center;
     }
 
+    .container-project-3 {
+       display: none;
+    }
+
     .text-container,
     .image-container-proj,
     .image-container-proj2 {

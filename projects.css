@@ -639,12 +639,22 @@ iframe {
     align-items: center;
 }
 
+.column-content-projects{
+    padding: 20px 20px 20px 0;
+}
+
+
 #anchor5 {
     background: var(--accent-1);
 }
 
-#anchor5 h1,
-#anchor5 h3 {
+#anchor5 h1 {
+    color: white;
+}
+
+#anchor5 h3{
+    font-size: 16px;
+    font-weight: 600;;
     color: white;
 }
 
