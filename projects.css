@@ -782,14 +782,14 @@ p {
     }
 
     .container-projects-2{
-        width: 100%;
+        width: 100% !important;
     }
 
     .container-projects-2 h1{
-        font-size: 10px;
+        font-size: 10px !important;
     }
 
     .container-projects-2 h3{
-        font-size: 4px;
+        font-size: 4px !important;
     }
 }
