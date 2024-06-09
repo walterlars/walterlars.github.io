@@ -579,10 +579,12 @@ section {
     align-items: center;
     flex-flow: wrap;
     box-shadow: 0 0.25em 0.5em rgba(16, 16, 16, 0.05);
+    overflow-x: auto; /* Add horizontal scroll for smaller screens */
+    white-space: nowrap; /* Prevent line breaks */
 }
 
 .ul-progress > li {
-    flex: 1;
+    flex: none; /* Prevent items from shrinking */
     text-align: center;
     padding: 1em 0;
 }
@@ -605,6 +607,16 @@ section {
 ul li a.active {
     color: var(--accent-2);
 }
+
+@media (max-width: 768px) {
+    .ul-progress {
+        padding: 0.5em; /* Reduce padding for smaller screens */
+    }
+
+    .ul-progress > li a {
+        font-size: 10px; /* Adjust font size for smaller screens */
+    }
+
 
 /*Projects*/
 .container-projects-3 {
@@ -667,11 +679,6 @@ ul li a.active {
     display: flex;
 }
 
-@media (max-width: 768px) {
-    .ul-progress > li a {
-        font-size: 10px;
-    }
-}
 
 iframe {
     margin-bottom: 50px;
