@@ -410,6 +410,9 @@ ul li a.active {
 
 /* Media queries for responsiveness */
 @media (max-width: 768px) {
+    .header{
+        display: none;
+    }
 
     .ul-progress {
         display: none;
