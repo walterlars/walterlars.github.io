@@ -493,71 +493,7 @@ header {
     color: var(--text-color-navbar);
 }
 
-/* Add media query for small screens */
-@media (max-width: 768px) {
-    .container-project {
-        flex-direction: column;
-        align-items: center;
-    }
 
-    .text-container,
-    .image-container-proj,
-    .image-container-proj2 {
-        max-width: 100%;
-        text-align: center;
-    }
-
-    .text-container {
-        margin: 20px auto;
-        align-items: center;
-    }
-
-    .image-container-proj,
-    .image-container-proj2 {
-        order: -1; /* Ensures image is above the text container */
-    }
-
-    .row {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .work-button {
-        align-self: center;
-    }
-
-    .tag-orange, .tag-blue, .tag-green, .tag-purple, .tag-lightblue {
-        margin: 15px 5px 10px 5px;
-    }
-
-    .right-column-start img {
-        max-width: 100%;
-    }
-
-    .left-column-start {
-        width: 100%;
-    }
-
-    .left-column-start h1 {
-        font-size: 55px;
-    }
-
-    .left-column-start h2 {
-        font-size: 50px;
-    }
-
-    .container-projects-2{
-        width: 100%;
-    }
-
-    .container-projects-2 h1{
-        font-size: 10px;
-    }
-
-    .container-projects-2 h3{
-        font-size: 4px;
-    }
-}
 
 #anchor1,
 #anchor2,
@@ -789,4 +725,71 @@ p {
 .right-column-start img {
     max-width: 70%;
     height: auto;
+}
+
+
+/* Add media query for small screens */
+@media (max-width: 768px) {
+    .container-project {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .text-container,
+    .image-container-proj,
+    .image-container-proj2 {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .text-container {
+        margin: 20px auto;
+        align-items: center;
+    }
+
+    .image-container-proj,
+    .image-container-proj2 {
+        order: -1; /* Ensures image is above the text container */
+    }
+
+    .row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .work-button {
+        align-self: center;
+    }
+
+    .tag-orange, .tag-blue, .tag-green, .tag-purple, .tag-lightblue {
+        margin: 15px 5px 10px 5px;
+    }
+
+    .right-column-start img {
+        max-width: 100%;
+    }
+
+    .left-column-start {
+        width: 100%;
+    }
+
+    .left-column-start h1 {
+        font-size: 55px;
+    }
+
+    .left-column-start h2 {
+        font-size: 50px;
+    }
+
+    .container-projects-2{
+        width: 100%;
+    }
+
+    .container-projects-2 h1{
+        font-size: 10px;
+    }
+
+    .container-projects-2 h3{
+        font-size: 4px;
+    }
 }
