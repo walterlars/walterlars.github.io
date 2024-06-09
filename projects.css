@@ -529,17 +529,13 @@ header {
     .tag-orange, .tag-blue, .tag-green, .tag-purple, .tag-lightblue {
         margin: 15px 5px 10px 5px;
     }
-    
-    .right-column-start {
-        display: none;
-    }
 
     .left-column-start {
         width: 100%;
     }
 
     .left-column-start h1 {
-        font-size: 75px;
+        font-size: 55px;
     }
 
     .left-column-start h2 {
