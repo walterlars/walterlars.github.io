@@ -791,7 +791,10 @@ p {
 
     .left-column-start {
         width: 100%;
+        margin: 0 auto;
     }
+
+    
 
     .left-column-start h1 {
         font-size: 55px;
