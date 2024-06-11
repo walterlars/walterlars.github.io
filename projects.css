@@ -248,11 +248,13 @@ header {
     padding: 20px 20px 20px 0;
 }
 
-.row {
+.row,
+.row2 {
     display: flex;
     width: 100%;
     max-width: 100vw;
 }
+
 
 .additional-content {
     flex: 1;
@@ -648,6 +650,10 @@ p {
 
     .row {
         flex-direction: column;
+        align-items: start;
+    }
+    .row2 {
+        flex-direction: column;
         align-items: center;
     }
 
@@ -662,9 +668,12 @@ p {
     .work-button {
         align-self: center;
     }
+    .right-column-start {
+        margin: 0 auto;
+    }
 
     .right-column-start img {
-        max-width: 100%;
+        max-width: 200%;
     }
 
     .container-start{
