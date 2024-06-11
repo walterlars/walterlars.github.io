@@ -444,7 +444,7 @@ ul li a.active {
 
 @media (max-width: 480px) {
     .ul-progress > li {
-        flex: 1 1 100%;
+        /* flex: 1 1 100%; */
         min-width: 50px;
         padding: 0.25em 0;
     }
