@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lars Walter - Packaging Desgin</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./projects.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+    <!-- partial:index.partial.html -->
+
+    <body>
+        <!-- Nav Bar Beginning-->
+        <header>
+            <a href="index.html" class="textlogo">lars walter.</a>
+
+            <input type="checkbox" id="check" />
+            <label for="check" class="icons">
+                <i class="bx bx-menu" id="menu-icon"></i>
+                <i class="bx bx-x" id="close-icon"></i>
+            </label>
+
+            <nav class="navbar">
+                <a href="index.html" class="nav-item" style="--i: 0">home</a>
+                <a href="CV-Lars.pdf" class="nav-item" style="--i: 3" target="_blank">resume</a>
+            </nav>
+        </header>
+        <!-- Nav Bar Ending -->
+
+
+        <div class="container-start">
+            <div class="row">
+                <div class="left-column-start">
+                    <div class="column-content-start">
+                        <h3>
+                            Design of different packagings.
+                        </h3>
+                        <h1>
+                            Packaging Design
+                        </h1>
+                        <div class="divider"></div>
+                        <div class="row2">
+                            <div class="tag-blue">
+                                <div class="circle-blue"></div>
+                                <p> UX-Design </p>
+                            </div>
+
+                            <div class="tag-purple">
+                                <div class="circle-purple"></div>
+                                <p> Figma </p>
+                            </div>
+
+                            <div class="tag-green">
+                                <div class="circle-green"></div>
+                                <p> UI-Design </p>
+                            </div>
+                        </div>
+                        <div class="project-infos">
+                            <div class="row2">
+                                <div class="project-top-container">
+                                    <h3>Design Role</h3>
+                                    <p>UX/UI Design</p>
+                                </div>
+                                <div class="project-top-container">
+                                    <h3>Sector</h3>
+                                    <p>Graphic Design, Mockups, Adobe Cloud</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="divider"></div>
+
+                    </div>
+                </div>
+                <div class="right-column-start">
+                    <img src="img/branding/CandelMockup1.png">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container-projects-2">
+            <div class="full-column">
+                <div class="column-content-projects">
+                    <!-- Inhalt der linken Spalte hier einfügen -->
+                    <div class="row">
+                        <div class="tag-lightblue">
+                            <div class="circle-lightblue"></div>
+                            <p> Branding </p>
+                        </div>
+                    </div>
+                    <h1>Introduction
+                    </h1>
+                    <h3>
+                        For this project, I explored my passion for packaging design through a series of fun and
+                        innovative creations. This personal endeavor allowed me to experiment with different design
+                        elements and styles, resulting in unique packaging solutions for chocolate, cans, and candles.
+                        Each design showcases my ability to blend functionality with aesthetics, creating visually
+                        appealing and user-friendly products. Through this project, I aimed to push the boundaries of
+                        conventional packaging design, making each item not just a product, but a memorable experience.
+                        It all was done by myself including the illustrations.
+                        I used the Adobe Cloud + Figma.</h3>
+                </div>
+            </div>
+        </div>
+        <div class="image-container">
+
+            <img src="img/branding/chocolate.png" alt="">
+            <img src="img/branding/can.png" alt="">
+            <img src="img/branding/candle.png" alt="">
+            <img src="img/branding/Calendar.png" alt="">
+            <img src="img/branding/chair1.png" alt="">
+            <img src="img/branding/chair2.png" alt="">
+            <img src="img/branding/chair3.png" alt="">
+            
+        </div>
+        
+
+
+
+
+    </body>
+    <style>
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            /* If you want the images stacked vertically, otherwise use 'row' */
+        }
+
+        .image-container img {
+            margin: 10px;
+            width: 60%;
+        }
+
+        .right-column-start img {
+            max-width: 80%;
+            height: auto;
+        }
+    </style>
+    <script>
+        function changePicture(imageName) {
+            document.querySelector('.final-img').src = imageName;
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="scrollbar.js"></script>
+
+</html>

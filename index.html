@@ -18,7 +18,7 @@
         </label>
         <nav class="navbar">
             <a href="index.html" class="nav-item" style="--i: 0">home</a>
-            <a href="#" class="nav-item" style="--i: 3">resume</a>
+            <a href="CV-Lars.pdf" class="nav-item" style="--i: 3" target="_blank">resume</a>
         </nav>
     </header>
 
@@ -212,10 +212,10 @@
                         <p>Graphic Design</p>
                     </div>
                 </div>
-                <div class="work-button" onclick="navigateToProductDesign()">Learn more</div>
+                <div class="work-button" onclick="navigateToStarcode()">Learn more</div>
             </div>
-            <div class="image-container-proj" onmouseover="changeBackgroundColor3()" onmouseout="restoreBackgroundColor()" onclick="navigateToProductDesign()">
-                <img src="img/starcode/test.png" alt="Your Image">
+            <div class="image-container-proj" onmouseover="changeBackgroundColor5()" onmouseout="restoreBackgroundColor()" onclick="navigateToStarcode()">
+                <img src="img/starcode/Starcode-banner.png" alt="Your Image">
             </div>
         </div>
     </div>
@@ -228,6 +228,19 @@
         function navigateToHera() {
             window.location.href = 'hera.html';
         }
+
+        function navigateToProductDesign() {
+            window.location.href = 'branding.html';
+        }
+
+        function navigateToStarcode() {
+            window.location.href = 'starcode.html';
+        }
+
+
+        function navigateToWeather() {
+            window.location.href = 'mobileapps.html';
+        }
         function changeBackgroundColor() {
             document.body.style.backgroundColor = "#DA63DC";
         }
@@ -239,6 +252,9 @@
         }
         function changeBackgroundColor4() {
             document.body.style.backgroundColor = "#FDFFAB";
+        }
+        function changeBackgroundColor5() {
+            document.body.style.backgroundColor = "#B37AE0";
         }
         function restoreBackgroundColor() {
             document.body.style.backgroundColor = "#fff";
