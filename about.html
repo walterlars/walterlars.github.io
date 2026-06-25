@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About - Lars Walter</title>
+<meta name="description" content="About Lars Walter — UX designer with a background in media informatics and psychology, based in Berlin.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .about-hero { padding-top: clamp(40px, 7vw, 90px); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: clamp(28px, 5vw, 72px);
+    align-items: start;
+  }
+  .about-grid .portrait { position: sticky; top: 90px; }
+  .about-grid .portrait .ph { aspect-ratio: 4/5; min-height: 0; border-radius: 6px; }
+  .about-grid h1 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(40px, 7vw, 76px);
+    line-height: 0.96;
+    letter-spacing: -0.045em;
+    margin: 0 0 20px;
+  }
+  .about-grid .intro { font-size: clamp(18px, 2vw, 22px); line-height: 1.5; margin: 0 0 20px; }
+  .about-grid p { color: var(--ink); }
+  @media (max-width: 760px) {
+    .about-grid { grid-template-columns: 1fr; }
+    .about-grid .portrait { position: static; }
+  }
+
+  /* section heading inside about */
+  .about-sec { margin-top: clamp(56px, 8vw, 96px); }
+  .about-sec > .eyebrow { margin-bottom: 18px; }
+
+  /* experience timeline */
+  .xp { border-top: 1px solid var(--ink); }
+  .xp-item {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: clamp(16px, 4vw, 48px);
+    padding: clamp(22px, 3vw, 34px) 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .xp-item .when { font-family: var(--font-mono); font-size: 12.5px; color: var(--muted); letter-spacing: 0.02em; padding-top: 4px; }
+  .xp-item h3 { font-family: var(--font-display); font-weight: 700; font-size: clamp(19px, 2.4vw, 24px); letter-spacing: -0.02em; margin: 0 0 4px; }
+  .xp-item .org { font-family: var(--font-mono); font-size: 12.5px; color: var(--blue); margin: 0 0 12px; letter-spacing: 0.02em; }
+  .xp-item ul { margin: 0; padding-left: 18px; color: var(--muted); line-height: 1.6; font-size: 15.5px; }
+  .xp-item ul li { margin-bottom: 4px; }
+  @media (max-width: 620px) { .xp-item { grid-template-columns: 1fr; gap: 8px; } }
+
+  /* education list */
+  .edu { display: grid; gap: 0; border-top: 1px solid var(--ink); }
+  .edu-item {
+    display: grid; grid-template-columns: 150px 1fr auto; gap: clamp(16px,4vw,48px);
+    align-items: baseline; padding: 18px 0; border-bottom: 1px solid var(--line);
+  }
+  .edu-item .when { font-family: var(--font-mono); font-size: 12.5px; color: var(--muted); }
+  .edu-item h4 { font-family: var(--font-display); font-weight: 600; font-size: 17px; margin: 0; }
+  .edu-item .where { font-family: var(--font-mono); font-size: 12.5px; color: var(--muted); text-align: right; }
+  @media (max-width: 620px) {
+    .edu-item { grid-template-columns: 1fr; gap: 3px; }
+    .edu-item .where { text-align: left; }
+  }
+
+  /* skills + tools */
+  .cols { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(24px, 4vw, 44px); }
+  .cols .col h4 { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue); margin: 0 0 12px; padding-top: 14px; border-top: 1.5px solid var(--ink); }
+  .cols .col p { margin: 0; color: var(--muted); font-size: 15.5px; line-height: 1.6; }
+  @media (max-width: 620px) { .cols { grid-template-columns: 1fr; } }
+
+  .tools-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+  .tools-row .tool {
+    font-family: var(--font-mono); font-size: 12.5px; letter-spacing: 0.02em;
+    padding: 7px 13px; border: 1px solid var(--line-2); border-radius: 6px;
+    background: var(--paper-2); color: var(--ink);
+  }
+
+  .lang-row { display: flex; flex-wrap: wrap; gap: 28px; margin-top: 8px; }
+  .lang-row .lang { font-family: var(--font-body); }
+  .lang-row .lang b { font-weight: 600; }
+  .lang-row .lang span { color: var(--muted); font-family: var(--font-mono); font-size: 12.5px; display: block; margin-top: 2px; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">Lars<span class="rest">&nbsp;Walter</span><span class="dot">.</span></a>
+    <ul>
+      <li><a class="link" href="index.html">Work</a></li>
+      <li><a class="link" href="about.html" aria-current="page">About</a></li>
+      <li><a class="link" href="resume.pdf" target="_blank">Resume</a></li>
+      <li><a class="link" href="mailto:lars.michelbach@web.de">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="about-hero section wrap">
+  <div class="about-grid">
+    <div class="portrait">
+      <div class="ph">
+        <img src="images/about.jpg" alt="Lars Walter">
+      </div>
+    </div>
+    <div>
+      <p class="eyebrow">About</p>
+      <h1>Hi, I'm Lars.</h1>
+      <p class="intro">A UX designer with a background in media informatics and psychology, so I understand both sides: the technical build, and what users actually need.</p>
+      <p>What drives me is designing products that feel <strong>intuitive and genuinely enjoyable to use</strong> from user research and concept work all the way through to interactive prototypes.</p>
+      <p>That mix comes from studying media informatics with a focus on Human-Computer Interaction in Munich, a semester abroad in Denmark, and now a master's in Mediatechnology specialization in HCI &amp; Human Factors at TU Berlin alongside hands-on UX and web roles where I've shipped real interfaces.</p>
+      <p>Outside of design you'll usually find me doing sports, sewing, or enjoying food.</p>
+    </div>
+  </div>
+</header>
+
+<!-- EXPERIENCE -->
+<section class="about-sec wrap">
+  <p class="eyebrow blue">Experience</p>
+  <div class="xp">
+    <div class="xp-item">
+      <div class="when">09/2024 - 08/2026</div>
+      <div>
+        <h3>AI-Avatar Software Development</h3>
+        <p class="org">Self-employed</p>
+        <ul>
+          <li>Building interactive WebGL applications with Unity and C#, including integrated AI avatars and OpenAI technologies.</li>
+          <li>Developing 360° learning environments for research and teaching, with voice and user interaction.</li>
+          <li>Testing, optimisation, and technical documentation.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="xp-item">
+      <div class="when">05/2024 - present</div>
+      <div>
+        <h3>Board Member &amp; Outreach</h3>
+        <p class="org">*Starcode · Volunteer</p>
+        <ul>
+          <li>Leading a 10-person team as a board member.</li>
+          <li>Building a coherent brand identity and designing marketing materials (flyers, infographics).</li>
+          <li>Planning social-media content and campaigns for schools and communities.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="xp-item">
+      <div class="when">05/2023 - 06/2024</div>
+      <div>
+        <h3>UX Designer</h3>
+        <p class="org">Financial.com · Working student</p>
+        <ul>
+          <li>Designing user-centered demo pages for the MarketMonitor platform.</li>
+          <li>Adapting layouts to user needs; researching client-specific design features.</li>
+          <li>Creating graphics and widgets (Figma, Photoshop, Illustrator) and implementing them in HTML, CSS, JavaScript, and SCSS.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="xp-item">
+      <div class="when">05/2021 - 07/2022</div>
+      <div>
+        <h3>Web Designer</h3>
+        <p class="org">VISPIRON Systems · Working student</p>
+        <ul>
+          <li>Building and maintaining pages of the VISPIRON homepage, including SEO review and optimisation.</li>
+          <li>Designing graphics, photography, and image editing.</li>
+          <li>Content creation: blog articles, customer success stories, and website videos, plus performance analysis.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="about-sec wrap">
+  <p class="eyebrow blue">Education</p>
+  <div class="edu">
+    <div class="edu-item">
+      <div class="when">since 10/2024</div>
+      <h4>M.Sc. Media Technology - focus HCI &amp; Human Factors</h4>
+      <div class="where">TU Berlin</div>
+    </div>
+    <div class="edu-item">
+      <div class="when">10/2020 - 10/2024</div>
+      <h4>B.Sc. Media Informatics (1.26) - focus HCI</h4>
+      <div class="where">LMU Munich</div>
+    </div>
+    <div class="edu-item">
+      <div class="when">08/2022 - 02/2023</div>
+      <h4>Erasmus Semester</h4>
+      <div class="where">Aarhus Universitet, Denmark</div>
+    </div>
+    <div class="edu-item">
+      <div class="when">10/2017 - 07/2020</div>
+      <h4>Abitur - International Business</h4>
+      <div class="where">Kaufm. Schule Öhringen</div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="about-sec wrap">
+  <p class="eyebrow blue">What I do</p>
+  <div class="cols">
+    <div class="col">
+      <h4>Design &amp; build</h4>
+      <p>UX / UI design, responsive web design, interactive prototyping, WebGL / 3D &amp; AI integration.</p>
+    </div>
+    <div class="col">
+      <h4>Design methods</h4>
+      <p>User research, wireframing, user testing, competitor &amp; task analysis, design-thinking workshops, user-centered design.</p>
+    </div>
+    <div class="col">
+      <h4>Research &amp; analysis</h4>
+      <p>Qualitative &amp; quantitative methods, data analysis.</p>
+    </div>
+    <div class="col">
+      <h4>HCI &amp; psychology</h4>
+      <p>Cognitive ergonomics, human factors, action &amp; cognitive psychology.</p>
+    </div>
+  </div>
+
+  <div style="margin-top:40px;">
+    <h4 style="font-family:var(--font-mono); font-size:11.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--blue); margin:0 0 4px;">Tools</h4>
+    <div class="tools-row">
+      <span class="tool">Figma</span>
+      <span class="tool">Adobe Creative Suite</span>
+      <span class="tool">HTML / CSS</span>
+      <span class="tool">JavaScript</span>
+      <span class="tool">Python</span>
+      <span class="tool">Unity</span>
+      <span class="tool">C#</span>
+      <span class="tool">Claude</span>
+      <span class="tool">WordPress</span>
+    </div>
+  </div>
+
+  <div style="margin-top:40px;">
+    <h4 style="font-family:var(--font-mono); font-size:11.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--blue); margin:0 0 4px;">Languages</h4>
+    <div class="lang-row">
+      <div class="lang"><b>German</b><span>Native</span></div>
+      <div class="lang"><b>English</b><span>Fluent</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="about-sec wrap" style="padding-bottom:clamp(40px,6vw,72px);">
+  <div style="display:flex; gap:14px; flex-wrap:wrap;">
+    <a class="btn primary" href="mailto:lars.michelbach@web.de">Get in touch →</a>
+    <a class="btn" href="resume.pdf" target="_blank">Download CV</a>
+    <a class="btn" href="index.html">See my work</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <span class="meta">© 2026 Lars Walter - UX Designer</span>
+    <span class="social">
+      <a href="mailto:lars.michelbach@web.de">Email</a>
+      <a href="https://www.linkedin.com/in/lars-walter-b66a97212/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </span>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lars Walter - UX Designer</title>
+<meta name="description" content="UX/UI designer and recent graduate. Three case studies, research through working prototype.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Archivo:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  /* ---- home-only: full-screen physics hero ---- */
+  .hero {
+    position: relative;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    text-align: center;
+    overflow: hidden;
+    padding: clamp(80px, 12vh, 140px) var(--gutter) clamp(64px, 12vh, 120px);
+  }
+
+  /* physics layer sits behind the centred content */
+  .pit { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+  .pit .box {
+    position: absolute; top: 0; left: 0;
+    display: grid; place-items: center;
+    padding: 0 24px; height: 58px;
+    border-radius: 12px;
+    font-family: var(--font-mono);
+    font-size: 16px; letter-spacing: 0.08em; text-transform: uppercase;
+    white-space: nowrap; user-select: none;
+    pointer-events: auto; cursor: grab;
+    will-change: transform;
+    box-shadow: 0 8px 22px -14px rgba(14,15,17,.4);
+  }
+  .pit .box:active { cursor: grabbing; }
+  .pit .box.solid  { background: var(--ink);  color: var(--paper); }
+  .pit .box.blue   { background: var(--blue);  color: #fff; }
+  .pit .box.ghost  { background: var(--paper); color: var(--ink); border: 1px solid var(--line-2); }
+  .pit .box.soft   { background: var(--paper-2); color: var(--muted); border: 1px solid var(--line); }
+
+  /* centred content above the pit */
+  .hero-inner { position: relative; z-index: 2; pointer-events: none; }
+  .hero-inner a, .hero-inner button { pointer-events: auto; }
+
+  .hero-meta {
+    display: flex; align-items: center; justify-content: center;
+    gap: 10px 16px; flex-wrap: wrap;
+    font-family: var(--font-mono);
+    font-size: clamp(10.5px, 1.2vw, 12px);
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: clamp(18px, 3vw, 30px);
+  }
+  .hero-meta .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--blue); animation: hpulse 1.8s ease-in-out infinite; }
+  @keyframes hpulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+  /* the wide name */
+  .hero-name {
+    font-family: "Space Grotesk", var(--font-display);
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+    margin: 0;
+    color: var(--ink);
+    white-space: nowrap;
+    font-size: clamp(38px, 11vw, 150px);
+  }
+  /* entrance: each letter wipes up from a mask, blur->sharp */
+  .hero-name .ch {
+    display: inline-block;
+    clip-path: inset(0 0 100% 0);
+    transform: translateY(0.4em);
+    filter: blur(8px);
+    opacity: 0;
+    animation: chReveal .7s cubic-bezier(.2,.8,.2,1) forwards;
+    animation-delay: var(--d, 0s);
+  }
+  .hero-name .ch.space { width: 0.32em; }
+  @keyframes chReveal {
+    to { clip-path: inset(0 0 0 0); transform: translateY(0); filter: blur(0); opacity: 1; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-name .ch { animation: none; clip-path: none; transform: none; filter: none; opacity: 1; }
+  }
+
+  .hero-desc {
+    max-width: 60ch; margin: clamp(20px, 3vw, 32px) auto 0;
+    font-family: var(--font-body);
+    font-size: clamp(15px, 1.7vw, 19px);
+    line-height: 1.5; color: var(--ink);
+    opacity: 0; animation: fadeUp .7s ease forwards .7s;
+  }
+  .hero-desc .loc { color: var(--muted); }
+  .hero-desc b { font-weight: 600; }
+  @keyframes fadeUp { from { opacity:0; transform: translateY(10px); } to { opacity:1; transform: translateY(0); } }
+
+  .cta-row { opacity: 0; animation: fadeUp .7s ease forwards .9s; }
+
+  /* scroll cue at the bottom of the full-screen hero */
+  .hero-cue {
+    position: absolute; left: 50%; bottom: 22px; transform: translateX(-50%);
+    z-index: 2;
+    font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--muted);
+    display: flex; flex-direction: column; align-items: center; gap: 7px;
+    opacity: 0; animation: fadeUp .7s ease forwards 1.2s; pointer-events: none;
+  }
+  .hero-cue .arrow { width: 1px; height: 22px; background: var(--line-2); position: relative; overflow: hidden; }
+  .hero-cue .arrow::after { content:""; position:absolute; top:-50%; left:0; width:100%; height:50%; background: var(--blue); animation: cue 1.6s ease-in-out infinite; }
+  @keyframes cue { 0%{ top:-50%; } 60%,100%{ top:100%; } }
+
+  .pit-hint {
+    position: absolute; left: 50%; top: 80px; transform: translateX(-50%); z-index: 2;
+    font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.06em;
+    color: var(--muted); opacity: 0; animation: fadeUp .7s ease forwards 1.4s; pointer-events: none;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 600px) {
+    .hero-name { white-space: normal; display: flex; flex-wrap: wrap; justify-content: center; font-size: clamp(40px, 16vw, 90px); }
+    .hero-name .ch.space { flex-basis: 100%; width: 0; height: 0; }
+    .pit .box { height: 48px; font-size: 13px; padding: 0 17px; }
+  }
+
+  /* work grid */
+  .work-head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    gap: 16px; flex-wrap: wrap; margin-bottom: 28px;
+  }
+  .project-card {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: clamp(20px, 4vw, 48px);
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: clamp(22px, 3vw, 38px);
+    background: var(--paper);
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s;
+  }
+  .project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px -24px rgba(0,0,0,.35);
+    border-color: var(--ink);
+  }
+  .project-card .pc-meta {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin: 0 0 12px;
+  }
+  .project-card h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(28px, 4vw, 44px);
+    letter-spacing: -0.02em;
+    margin: 0 0 12px;
+  }
+  .project-card p { margin: 0 0 18px; color: var(--muted); }
+  .project-card .arrow {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 2px;
+  }
+  .project-card .ph { width: 100%; aspect-ratio: 4/3; min-height: 0; }
+  @media (max-width: 720px) {
+    .project-card { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">Lars<span class="rest">&nbsp;Walter</span><span class="dot">.</span></a>
+    <ul>
+      <li><a class="link" href="index.html" aria-current="page">Work</a></li>
+      <li><a class="link" href="about.html">About</a></li>
+      <li><a class="link" href="resume.pdf" target="_blank">Resume</a></li>
+      <li><a class="link" href="mailto:lars.michelbach@web.de">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="hero">
+  <!-- physics box pit (behind content) -->
+  <div class="pit" id="pit"></div>
+
+  <div class="hero-inner wrap">
+    <h1 class="hero-name" aria-label="Lars Walter" data-name="LARS WALTER"></h1>
+
+    <p class="hero-desc">
+      <span class="loc">Based in Berlin</span> - specialized in <b>UX Design</b>, <b>Human Factors</b>, and <b>Human-Computer Interaction</b>.
+    </p>
+
+    <div class="hero-meta" style="margin-top:clamp(18px,3vw,26px); margin-bottom:0;">
+      <span class="dot"></span><span id="heroClock">--:--</span>
+    </div>
+
+    <div class="cta-row" style="justify-content:center; display:flex; gap:14px; margin-top:clamp(20px,3vw,28px);">
+      <a class="btn primary" href="#work">View work →</a>
+      <a class="btn" href="about.html">About me</a>
+      <a class="btn" href="resume.pdf" target="_blank">Resume</a>
+    </div>
+  </div>
+
+  <span class="pit-hint">grab &amp; throw the boxes ↓</span>
+</header>
+
+<script>
+  (function () {
+    // ---- name entrance: split into letters, stagger reveal ----
+    var nameEl = document.querySelector('.hero-name');
+    if (nameEl) {
+      var txt = nameEl.getAttribute('data-name') || '';
+      var i = 0;
+      txt.split('').forEach(function (chr) {
+        var s = document.createElement('span');
+        if (chr === ' ') { s.className = 'ch space'; s.innerHTML = '&nbsp;'; }
+        else {
+          s.className = 'ch'; s.textContent = chr;
+          s.style.setProperty('--d', (0.06 * i + 0.1).toFixed(2) + 's');
+          i++;
+        }
+        nameEl.appendChild(s);
+      });
+    }
+
+    // ---- live clock ----
+    var clock = document.getElementById('heroClock');
+    if (clock) {
+      function p(n){ return (n<10?'0':'')+n; }
+      function tick(){ var d=new Date(); clock.textContent = p(d.getHours())+':'+p(d.getMinutes())+':'+p(d.getSeconds()); }
+      tick(); setInterval(tick, 1000);
+    }
+
+    // ---- throwable word boxes with gravity ----
+    var pit = document.getElementById('pit');
+    var hero = document.getElementById('hero');
+    if (!pit) return;
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    var WORDS = [
+      { t: 'UX DESIGN',  c: 'solid' },
+      { t: 'RESEARCH',   c: 'ghost' },
+      { t: 'FIGMA',      c: 'blue'  },
+      { t: 'PROTOTYPING',c: 'ghost' },
+      { t: 'BERLIN',     c: 'soft'  },
+      { t: 'HCI',        c: 'solid' },
+      { t: 'UI',         c: 'blue'  },
+      { t: 'USABILITY',  c: 'soft'  },
+      { t: 'WIREFRAMES', c: 'ghost' }
+    ];
+
+    var GRAV = 0.5, FRICTION = 0.98, REST = 0.55, FLOOR_PAD = 120;
+    var boxes = [];
+    var W = pit.clientWidth, H = pit.clientHeight;
+
+    function rand(a, b) { return a + Math.random() * (b - a); }
+
+    WORDS.forEach(function (w, idx) {
+      var el = document.createElement('div');
+      el.className = 'box ' + w.c;
+      el.textContent = w.t;
+      pit.appendChild(el);
+      var bw = el.offsetWidth, bh = el.offsetHeight;
+      // start clustered in the centre third so they pile up
+      var cstart = W * 0.30, cspan = W * 0.40;
+      var b = {
+        el: el, w: bw, h: bh,
+        x: cstart + rand(0, cspan) - bw / 2,
+        y: -80 - idx * 80,   // stacked above the viewport, drop in one by one
+        vx: rand(-1.2, 1.2), vy: 0,
+        held: false
+      };
+      b.x = Math.max(10, Math.min(b.x, W - bw - 10));
+      boxes.push(b);
+      addDrag(b);
+    });
+
+    function render(b) { b.el.style.transform = 'translate(' + b.x + 'px,' + b.y + 'px)'; }
+
+    var nameRef = document.querySelector('.hero-name');
+    function getFloorY() {
+      // floor = top edge of the name, in pit-local coordinates
+      if (!nameRef) return H - FLOOR_PAD;
+      var pr = pit.getBoundingClientRect();
+      var nr = nameRef.getBoundingClientRect();
+      var y = nr.top - pr.top - 10; // small gap so boxes rest just above the name
+      return Math.max(80, y);
+    }
+
+    function step() {
+      W = pit.clientWidth; H = pit.clientHeight;
+      var floorY = getFloorY();
+      for (var i = 0; i < boxes.length; i++) {
+        var b = boxes[i];
+        if (!b.held) {
+          b.vy += GRAV;
+          b.x += b.vx; b.y += b.vy;
+          b.vx *= FRICTION;
+          // walls
+          if (b.x < 0) { b.x = 0; b.vx *= -REST; }
+          if (b.x + b.w > W) { b.x = W - b.w; b.vx *= -REST; }
+          // floor = top of the name
+          if (b.y + b.h > floorY) { b.y = floorY - b.h; b.vy *= -REST; if (Math.abs(b.vy) < 1.2) b.vy = 0; }
+        }
+        render(b);
+      }
+      // simple box-vs-box separation so they stack (multiple passes for stability)
+      for (var pass = 0; pass < 3; pass++) {
+        for (var a = 0; a < boxes.length; a++) {
+          for (var c = a + 1; c < boxes.length; c++) {
+            resolve(boxes[a], boxes[c]);
+          }
+        }
+      }
+      // keep everything inside after separation
+      for (var k = 0; k < boxes.length; k++) {
+        var bb = boxes[k];
+        if (bb.x < 0) bb.x = 0;
+        if (bb.x + bb.w > W) bb.x = W - bb.w;
+        if (bb.y + bb.h > floorY) bb.y = floorY - bb.h;
+        render(bb);
+      }
+      requestAnimationFrame(step);
+    }
+
+    function resolve(p, q) {
+      if (p.held && q.held) return;
+      var px = p.x + p.w/2, py = p.y + p.h/2;
+      var qx = q.x + q.w/2, qy = q.y + q.h/2;
+      var dx = qx - px, dy = qy - py;
+      var ox = (p.w + q.w)/2 - Math.abs(dx);
+      var oy = (p.h + q.h)/2 - Math.abs(dy);
+      if (ox > 0 && oy > 0) {
+        if (ox < oy) {
+          var sx = (dx < 0 ? -1 : 1) * ox / 2;
+          if (!p.held) p.x -= sx; if (!q.held) q.x += sx;
+          if (!p.held) p.vx *= 0.6; if (!q.held) q.vx *= 0.6;
+        } else {
+          var sy = (dy < 0 ? -1 : 1) * oy / 2;
+          if (!p.held) p.y -= sy; if (!q.held) q.y += sy;
+          if (!p.held) p.vy *= 0.4; if (!q.held) q.vy *= 0.4;
+        }
+      }
+    }
+
+    function addDrag(b) {
+      var lastX, lastY, lastT, px, py;
+      b.el.addEventListener('pointerdown', function (e) {
+        b.held = true; b.vx = b.vy = 0;
+        b.el.setPointerCapture(e.pointerId);
+        var r = pit.getBoundingClientRect();
+        px = e.clientX - r.left - b.x;
+        py = e.clientY - r.top - b.y;
+        lastX = e.clientX; lastY = e.clientY; lastT = performance.now();
+        e.preventDefault();
+      });
+      b.el.addEventListener('pointermove', function (e) {
+        if (!b.held) return;
+        var r = pit.getBoundingClientRect();
+        b.x = e.clientX - r.left - px;
+        b.y = e.clientY - r.top - py;
+        var now = performance.now(), dt = Math.max(1, now - lastT);
+        b.vx = (e.clientX - lastX) / dt * 16;
+        b.vy = (e.clientY - lastY) / dt * 16;
+        lastX = e.clientX; lastY = e.clientY; lastT = now;
+        render(b);
+      });
+      function release() {
+        if (b.held) { b.held = false; }
+      }
+      b.el.addEventListener('pointerup', release);
+      b.el.addEventListener('pointercancel', release);
+    }
+
+    if (reduce) {
+      // place them resting along the floor without animation
+      var x = 16;
+      boxes.forEach(function (b) {
+        if (x + b.w > W - 16) x = 16;
+        b.x = x; b.y = getFloorY() - b.h; b.vy = 0; x += b.w + 10; render(b);
+      });
+    } else {
+      requestAnimationFrame(step);
+    }
+  })();
+</script>
+
+
+
+
+
+<hr class="rule">
+
+<section id="work" class="section wrap">
+  <div class="work-head">
+    <div>
+      <p class="eyebrow">Selected work</p>
+      <h2 class="h-section">Projects</h2>
+    </div>
+    <!-- <p class="eyebrow" style="margin:0;">2024 - 2025</p> -->
+  </div>
+
+  <a class="project-card" href="timebond.html">
+    <div>
+      <p class="pc-meta">UX · UI · Research - 2024/25</p>
+      <h3>TimeBond</h3>
+      <p>A shared calendar centred on availability - helping friends see when they're free and plan together without the back-and-forth.</p>
+      <span class="arrow">Read the case study →</span>
+    </div>
+    <div class="ph">
+      <!-- <span>[ REPLACE ] Project cover image<small>images/timebond-cover.jpg · ~1200×900</small></span> -->
+      <img src="images/timebond-showcase.png" alt="TimeBond app screens">
+    </div>
+  </a>
+
+  <a class="project-card" href="organizeme.html" style="margin-top:24px;">
+    <div>
+      <p class="pc-meta">UX · UI · Personal Project - 2024</p>
+      <h3>OrganizeME</h3>
+      <p>Transforming Chaos into Clarity: OrganizeME Keeps Your Life in Sync!</p>
+      <span class="arrow">Read the case study →</span>
+    </div>
+    <div class="ph">
+      <!-- <span>[ REPLACE ] Project cover image<small>images/timebond-cover.jpg · ~1200×900</small></span> -->
+      <img src="images/organizeme-showcase.png" alt="TimeBond app screens">
+    </div>
+  </a>
+
+  <a class="project-card" href="heraimod.html" style="margin-top:24px;">
+    <div>
+      <p class="pc-meta">UX · UI · Company Project - 2024</p>
+      <h3>Hera IMOD UI</h3>
+      <p>Elevating the Hera IMOD lab system with a modern, clean desktop UI.</p>
+      <span class="arrow">Read the case study →</span>
+    </div>
+    <div class="ph">
+      <!-- <span>[ REPLACE ] Project cover image<small>images/timebond-cover.jpg · ~1200×900</small></span> -->
+      <img src="images/hera-showcase.png" alt="TimeBond app screens">
+    </div>
+  </a>
+
+  <!-- Duplicate the block above to add more projects later. -->
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <span class="meta">© 2026 Lars Walter - UX Designer</span>
+    <span class="social">
+      <a href="mailto:lars.michelbach@web.de">Email</a>
+      <a href="https://www.linkedin.com/in/lars-walter-b66a97212/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </span>
+  </div>
+</footer>
+
+</body>
+</html>

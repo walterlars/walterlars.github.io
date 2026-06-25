@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TimeBond - New UI</title>
+<meta name="description" content="TimeBond — the redesigned UI of the shared calendar app.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .new-head { padding-top: clamp(40px, 6vw, 80px); }
+  .new-head h1 {
+    font-family: var(--font-display); font-weight: 600;
+    font-size: clamp(40px, 8vw, 88px); line-height: 0.95;
+    letter-spacing: -0.045em; margin: 0 0 18px;
+  }
+  .new-head .sub {
+    font-family: var(--font-mono); font-size: clamp(14px, 1.6vw, 17px);
+    color: var(--muted); max-width: 54ch; margin: 0; line-height: 1.55;
+  }
+
+  /* grid of smartphone screens */
+  .screens {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(20px, 3vw, 36px);
+    margin-top: clamp(36px, 5vw, 56px);
+  }
+  @media (max-width: 900px) { .screens { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 640px) { .screens { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 380px) { .screens { grid-template-columns: 1fr; } }
+
+  .screen-fig { margin: 0; }
+  .screen-fig .ph.phone {
+    width: 100%; aspect-ratio: 9 / 19; min-height: 0;
+    border-radius: 26px;
+  }
+  .screen-fig figcaption {
+    font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.03em;
+    color: var(--muted); margin-top: 12px; text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">Lars<span class="rest">&nbsp;Walter</span><span class="dot">.</span></a>
+    <ul>
+      <li><a class="link" href="index.html">Work</a></li>
+      <li><a class="link" href="about.html">About</a></li>
+      <li><a class="link" href="resume.pdf" target="_blank">Resume</a></li>
+      <li><a class="link" href="mailto:hello@example.com">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="new-head section wrap" style="padding-bottom:0;">
+  <p class="eyebrow blue">2026 · Redesign</p>
+  <h1>TimeBond - New UI</h1>
+  <p class="sub">A complete visual overhaul of the shared calendar. Same functionality, refined look — now being built into a real, working app.</p>
+</header>
+
+<section class="section wrap" style="padding-top:clamp(28px,4vw,40px);">
+  <div class="screens">
+    <figure class="screen-fig">
+      <div class="ph phone"><span>[ REPLACE ]<small>images/new-home.png</small></span></div>
+      <figcaption>Home</figcaption>
+    </figure>
+    <figure class="screen-fig">
+      <div class="ph phone"><span>[ REPLACE ]<small>images/new-calendar.png</small></span></div>
+      <figcaption>Shared calendar</figcaption>
+    </figure>
+    <figure class="screen-fig">
+      <div class="ph phone"><span>[ REPLACE ]<small>images/new-freetime.png</small></span></div>
+      <figcaption>Free time</figcaption>
+    </figure>
+    <figure class="screen-fig">
+      <div class="ph phone"><span>[ REPLACE ]<small>images/new-event.png</small></span></div>
+      <figcaption>Create event</figcaption>
+    </figure>
+    <figure class="screen-fig">
+      <div class="ph phone"><span>[ REPLACE ]<small>images/new-chat.png</small></span></div>
+      <figcaption>Chats</figcaption>
+    </figure>
+    <figure class="screen-fig">
+      <div class="ph phone"><span>[ REPLACE ]<small>images/new-detail.png</small></span></div>
+      <figcaption>Event details</figcaption>
+    </figure>
+    <figure class="screen-fig">
+      <div class="ph phone"><span>[ REPLACE ]<small>images/new-profile.png</small></span></div>
+      <figcaption>Profile</figcaption>
+    </figure>
+    <figure class="screen-fig">
+      <div class="ph phone"><span>[ REPLACE ]<small>images/new-settings.png</small></span></div>
+      <figcaption>Settings</figcaption>
+    </figure>
+  </div>
+
+  <div style="margin-top:clamp(40px,6vw,64px); display:flex; gap:14px; flex-wrap:wrap;">
+    <a class="btn" href="timebond.html">← Back to case study</a>
+    <a class="btn primary" href="index.html">All work</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <span class="meta">© 2026 Lars Walter - UX Designer</span>
+    <span class="social">
+      <a href="mailto:lars.michelbach@web.de">Email</a>
+      <a href="https://www.linkedin.com/in/lars-walter-b66a97212/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </span>
+  </div>
+</footer>
+
+</body>
+</html>
